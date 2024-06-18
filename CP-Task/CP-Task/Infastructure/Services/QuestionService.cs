@@ -21,6 +21,7 @@ namespace CP_Task.Infastructure.Services
         public QuestionService(CosmosClient dbClient)
         {
             _dbClient = dbClient;
+            //Todo: Find a better way to do the below.
             _database = _dbClient.CreateDatabaseIfNotExistsAsync("Questions").Result;
             _container = _database.CreateContainerIfNotExistsAsync("Items", "/id").Result;
             Console.WriteLine("Created Database: {0}\n", _database.Id);

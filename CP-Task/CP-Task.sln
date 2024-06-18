@@ -5,6 +5,8 @@ VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CP-Task", "CP-Task\CP-Task.csproj", "{2F7307F3-D18D-427A-BB5B-1CC7E4D8DF82}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cp-task-test", "cp-task-test\cp-task-test.csproj", "{458B5873-6573-4185-81CA-B8CE88A25154}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{2F7307F3-D18D-427A-BB5B-1CC7E4D8DF82}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F7307F3-D18D-427A-BB5B-1CC7E4D8DF82}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F7307F3-D18D-427A-BB5B-1CC7E4D8DF82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{458B5873-6573-4185-81CA-B8CE88A25154}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{458B5873-6573-4185-81CA-B8CE88A25154}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{458B5873-6573-4185-81CA-B8CE88A25154}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{458B5873-6573-4185-81CA-B8CE88A25154}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

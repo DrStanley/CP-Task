@@ -1,4 +1,8 @@
 
+using CP_Task.Infastructure.IServices;
+using CP_Task.Infastructure.Services;
+using Microsoft.Azure.Cosmos;
+
 namespace CP_Task
 {
     public class Program
@@ -10,6 +14,16 @@ namespace CP_Task
             // Add services to the container.
 
             builder.Services.AddControllers();
+            // Register the Cosmos DB client and services.
+            var cosmosDbConnectionString = builder.Configuration.GetConnectionString("CosmosDb");
+            var cosmosDbSettings = builder.Configuration.GetSection("CosmosDbSettings");
+            string EndpointUri = cosmosDbSettings["EndpointUri"]!;
+            string PrimaryKey = cosmosDbSettings["PrimaryKey"]!;
+            string ApplicationName = cosmosDbSettings["ApplicationName"]!;
+
+            builder.Services.AddSingleton(s => new CosmosClient(EndpointUri, PrimaryKey, new CosmosClientOptions() { ApplicationName = ApplicationName }));
+            builder.Services.AddTransient<IQuestionService, QuestionService>();
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();

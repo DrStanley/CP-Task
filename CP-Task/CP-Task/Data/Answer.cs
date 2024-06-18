@@ -5,7 +5,7 @@
         /// <summary>
         /// Gets or sets the unique identifier for the answer.
         /// </summary>
-        public string Id { get; set; } = string.Empty;
+        public string? id { get; set; } = string.Empty;
 
         /// <summary>
         /// Gets or sets the identifier of the question that this answer corresponds to.

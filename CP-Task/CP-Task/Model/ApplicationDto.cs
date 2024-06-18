@@ -1,7 +1,12 @@
 ﻿namespace CP_Task.Model
 {
     public class ApplicationDto
-    {   /// <summary>
+    {
+        /// <summary>
+        /// Gets or sets the unique identifier for the application.
+        /// </summary>
+        public string? id { get; set; } = string.Empty;
+        /// <summary>
         /// Gets or sets the first name of the candidate who is submitting the application.
         /// </summary>
         public string FirstName { get; set; } = string.Empty;

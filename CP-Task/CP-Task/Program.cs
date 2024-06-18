@@ -23,6 +23,7 @@ namespace CP_Task
 
             builder.Services.AddSingleton(s => new CosmosClient(EndpointUri, PrimaryKey, new CosmosClientOptions() { ApplicationName = ApplicationName }));
             builder.Services.AddTransient<IQuestionService, QuestionService>();
+            builder.Services.AddTransient<IApplicationsService, ApplicationsService>();
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();

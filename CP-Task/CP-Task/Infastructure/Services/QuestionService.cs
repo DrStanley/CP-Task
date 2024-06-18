@@ -22,8 +22,8 @@ namespace CP_Task.Infastructure.Services
         {
             _dbClient = dbClient;
             //Todo: Find a better way to do the below.
-            _database = _dbClient.CreateDatabaseIfNotExistsAsync("Questions").Result;
-            _container = _database.CreateContainerIfNotExistsAsync("Items", "/id").Result;
+            _database = _dbClient.CreateDatabaseIfNotExistsAsync("cp_task").Result;
+            _container = _database.CreateContainerIfNotExistsAsync("Questions", "/id").Result;
             Console.WriteLine("Created Database: {0}\n", _database.Id);
             Console.WriteLine("Created Container: {0}\n", _container.Id);
 
@@ -90,9 +90,18 @@ namespace CP_Task.Infastructure.Services
         /// </summary>
         /// <param name="id">The ID of the question to update.</param>
         /// <param name="question">The updated question.</param>
-        public async Task UpdateQuestionAsync(string id, QuestionDto question)
+        public async Task<string> UpdateQuestionAsync(string id, QuestionDto questionDto)
         {
+            var question = await GetQuestionAsync(questionDto.id);
+            if (question == null)
+            {
+                return null;
+            }
+            question.Type = questionDto.Type;
+            question.Text = questionDto.Text;
+            question.Options = questionDto.Options;
             await _container.UpsertItemAsync(question, new PartitionKey(id));
+            return question.id;
         }
 
         /// <summary>

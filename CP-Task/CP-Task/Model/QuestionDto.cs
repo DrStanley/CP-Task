@@ -6,6 +6,10 @@ namespace CP_Task.Model
     {
 
         /// <summary>
+        /// Gets or sets the unique identifier for the question.
+        /// </summary>
+        public string id { get; set; } = string.Empty;
+        /// <summary>
         /// Gets or sets the type of the question (e.g., Paragraph, YesNo, Dropdown, MultipleChoice, Date, Number).
         /// </summary>
         public string Type { get; set; } = string.Empty;

@@ -5,7 +5,7 @@
         /// <summary>
         /// Gets or sets the unique identifier for the application.
         /// </summary>
-        public string Id { get; set; } = string.Empty;
+        public string id { get; set; } = string.Empty;
 
         /// <summary>
         /// Gets or sets the first name of the candidate who submitted the application.

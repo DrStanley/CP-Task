@@ -44,17 +44,13 @@ namespace CP_Task.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult> UpdateQuestion(string id, QuestionDto questionDto)
+        public async Task<ActionResult> UpdateQuestion(QuestionDto questionDto)
         {
-            var question = await _questionService.GetQuestionAsync(id);
-            if (question == null)
+            var id = await _questionService.UpdateQuestionAsync(questionDto.id, questionDto);
+            if (id == null)
             {
                 return NotFound();
             }
-            question.Type = questionDto.Type;
-            question.Text = questionDto.Text;
-            question.Options = questionDto.Options;
-            await _questionService.UpdateQuestionAsync(id, question);
             return Ok();
         }
 
